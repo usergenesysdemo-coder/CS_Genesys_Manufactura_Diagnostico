@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCaaS y CX para Manufactura en México | Genesys</title>
+  <meta name="description" content="Landing page ejecutiva sobre tendencias de CCaaS y Customer Experience para Manufactura en México y el valor de Genesys Cloud CX." />
+  <style>
+    :root {
+      --bg: #070816;
+      --bg-2: #101225;
+      --card: rgba(255,255,255,0.075);
+      --card-2: rgba(255,255,255,0.11);
+      --text: #f7f5ff;
+      --muted: #c7c2df;
+      --soft: #8f86ad;
+      --primary: #ff4f1f;
+      --primary-2: #ff8a4d;
+      --accent: #7c5cff;
+      --accent-2: #14d9c4;
+      --green: #2ee59d;
+      --yellow: #ffd166;
+      --danger: #ff5f7e;
+      --border: rgba(255,255,255,0.15);
+      --shadow: 0 24px 80px rgba(0,0,0,0.38);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,79,31,0.28), transparent 30%),
+        radial-gradient(circle at 85% 5%, rgba(124,92,255,0.35), transparent 32%),
+        radial-gradient(circle at 50% 85%, rgba(20,217,196,0.16), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7,8,22,0.78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 12px 28px rgba(255,79,31,0.3);
+      font-size: 19px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform .2s ease, background .2s ease, border .2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,0.14); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border: 0;
+      box-shadow: 0 18px 40px rgba(255,79,31,0.28);
+    }
+
+    .btn-primary:hover { background: linear-gradient(135deg, #ff6339, #ffa16f); }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 84px 22px 48px;
+      display: grid;
+      grid-template-columns: 1.07fr .93fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffe1d6;
+      background: rgba(255,79,31,0.13);
+      border: 1px solid rgba(255,79,31,0.34);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 750;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: .93;
+      letter-spacing: -0.065em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(120deg, #fff, #ffe0d3 40%, #a99bff 72%, #7ff5e9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 24px 0 0;
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 540px;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055)),
+        rgba(255,255,255,0.05);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 24px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -80px auto auto;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,79,31,0.5), transparent 70%);
+      filter: blur(8px);
+    }
+
+    .dashboard {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.095);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 7px rgba(46,229,157,0.15);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .kpi {
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+      border-radius: 22px;
+      padding: 18px;
+      min-height: 130px;
+    }
+
+    .kpi .label {
+      color: var(--soft);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+    }
+
+    .kpi .value {
+      margin-top: 10px;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .kpi .note {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .journey-card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(0,0,0,0.18);
+      padding: 20px;
+    }
+
+    .journey-row {
+      display: grid;
+      grid-template-columns: 115px 1fr 66px;
+      gap: 13px;
+      align-items: center;
+      margin: 14px 0;
+    }
+
+    .journey-row span { color: var(--muted); font-size: 13px; }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      overflow: hidden;
+    }
+
+    .bar > i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--accent-2));
+      width: var(--w);
+    }
+
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 70px 22px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .8fr 1fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .section-head p,
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--border);
+      min-height: 188px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(32px, 4vw, 46px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      margin: 12px 0 8px;
+    }
+
+    .stat span { color: var(--muted); font-size: 14px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(124,92,255,0.16);
+      border: 1px solid rgba(124,92,255,0.3);
+      color: #d9d2ff;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.045));
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+    }
+
+    .card h3 {
+      margin: 16px 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.035em;
+    }
+
+    .card p { color: var(--muted); margin: 0; }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
+      font-size: 24px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: rgba(255,255,255,0.07);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .metric-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .metric-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.16);
+      border: 1px solid var(--border);
+    }
+
+    .metric-item b { font-size: 15px; }
+    .metric-item small { display: block; color: var(--muted); margin-top: 2px; }
+    .metric-item em { font-style: normal; font-weight: 900; color: #fff; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(255,79,31,.8), rgba(124,92,255,.8));
+      border-color: transparent;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fade .25s ease; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .usecase {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.16);
+      border: 1px solid var(--border);
+    }
+
+    .usecase h4 { margin: 0 0 8px; font-size: 18px; }
+    .usecase p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .roi-box {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .calculator {
+      display: grid;
+      gap: 18px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input[type="range"] { width: 100%; accent-color: var(--primary); }
+
+    .result {
+      text-align: center;
+      padding: 28px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(46,229,157,0.24), transparent 55%),
+        rgba(0,0,0,0.2);
+      border: 1px solid var(--border);
+    }
+
+    .result small { color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .result strong { display: block; font-size: clamp(44px, 7vw, 82px); letter-spacing: -0.07em; line-height: .95; margin: 10px 0; }
+    .result p { color: var(--muted); margin: 0; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: wave;
+    }
+
+    .wave {
+      position: relative;
+      padding: 26px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.075);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .wave::before {
+      counter-increment: wave;
+      content: "0" counter(wave);
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.07em;
+      color: rgba(255,255,255,0.08);
+    }
+
+    .wave h3 { margin: 42px 0 8px; font-size: 23px; letter-spacing: -0.04em; }
+    .wave p { color: var(--muted); margin: 0; }
+
+    .quote {
+      padding: 40px;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(255,79,31,0.18), rgba(124,92,255,0.16)),
+        rgba(255,255,255,0.075);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .quote blockquote {
+      font-size: clamp(27px, 4vw, 44px);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      margin: 0;
+      font-weight: 900;
+    }
+
+    .quote p { color: var(--muted); margin: 16px 0 0; }
+
+    .proof-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .proof {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid var(--border);
+    }
+
+    .proof b { display: block; font-size: 22px; letter-spacing: -0.03em; }
+    .proof span { color: var(--muted); font-size: 14px; }
+
+    .sources {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .source {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .source:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+    footer {
+      padding: 36px 22px 56px;
+      color: var(--soft);
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 13px;
+    }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 980px) {
+      .hero, .section-head, .split, .roi-box, .quote { grid-template-columns: 1fr; }
+      .hero-card { min-height: auto; }
+      .stats, .timeline { grid-template-columns: repeat(2, 1fr); }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      .hero { padding-top: 56px; }
+      .kpi-grid, .stats, .card-grid, .usecase-grid, .timeline, .sources { grid-template-columns: 1fr; }
+      .journey-row { grid-template-columns: 1fr; gap: 7px; }
+      .quote { padding: 26px; }
+      .panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#inicio" class="brand" aria-label="Inicio">
+        <span class="brand-mark">✦</span>
+        <span>Genesys · Manufactura MX</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#tendencias">Tendencias</a>
+        <a href="#valor">Valor</a>
+        <a href="#kpis">KPIs</a>
+        <a href="#casos">Casos de uso</a>
+        <a href="#roi">ROI</a>
+      </nav>
+      <a class="btn btn-primary" href="#roadmap">Ver roadmap</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="reveal">
+        <div class="eyebrow">CCaaS + IA + Customer Experience para Manufactura</div>
+        <h1><span class="gradient-text">Convertir el servicio en margen, lealtad y crecimiento.</span></h1>
+        <p>
+          La industria manufacturera en México necesita ir más allá del contact center tradicional:
+          orquestar postventa, garantías, distribuidores, soporte técnico, logística y field service
+          con una plataforma omnicanal, analítica e IA aplicada al negocio.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#valor">Explorar valor de Genesys</a>
+          <a class="btn" href="#casos">Ver casos de uso</a>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal" aria-label="Dashboard de KPIs ejecutivos">
+        <div class="dashboard">
+          <div class="dash-header">
+            <div>
+              <div class="pill"><span class="live-dot"></span> Executive CX cockpit</div>
+            </div>
+            <div class="pill">México · Manufactura</div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi">
+              <div class="label">Manufactura en exportaciones</div>
+              <div class="value">91.6%</div>
+              <div class="note">del valor exportado de México.</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Presupuesto TIC</div>
+              <div class="value">$85B</div>
+              <div class="note">MXN en manufactura durante 2024.</div>
+            </div>
+            <div class="kpi">
+              <div class="label">CX business case</div>
+              <div class="value">-15–25%</div>
+              <div class="note">reducción potencial de costos.</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Aftermarket</div>
+              <div class="value">2x</div>
+              <div class="note">margen bruto vs. venta de equipo.</div>
+            </div>
+          </div>
+
+          <div class="journey-card">
+            <div class="dash-header">
+              <strong>Journeys críticos</strong>
+              <span class="pill">Impacto CX</span>
+            </div>
+            <div class="journey-row"><span>Garantías</span><div class="bar"><i style="--w: 88%"></i></div><span>Alto</span></div>
+            <div class="journey-row"><span>Refacciones</span><div class="bar"><i style="--w: 82%"></i></div><span>Alto</span></div>
+            <div class="journey-row"><span>Distribuidores</span><div class="bar"><i style="--w: 79%"></i></div><span>Alto</span></div>
+            <div class="journey-row"><span>Entregas</span><div class="bar"><i style="--w: 73%"></i></div><span>Medio</span></div>
+            <div class="journey-row"><span>Field service</span><div class="bar"><i style="--w: 91%"></i></div><span>Alto</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="tendencias">
+      <div class="section-head reveal">
+        <h2>Tendencias que están redefiniendo CX en manufactura</h2>
+        <p>
+          Nearshoring, presión por eficiencia, clientes B2B más digitales y crecimiento del aftermarket
+          están empujando a los fabricantes a operar con experiencias conectadas, medibles y proactivas.
+        </p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat">
+          <span class="tag">Mercado</span>
+          <strong>647K+</strong>
+          <span>unidades económicas manufactureras registradas en México.</span>
+        </div>
+        <div class="stat">
+          <span class="tag">Digitalización</span>
+          <strong>46%</strong>
+          <span>declara que sus esfuerzos digitales avanzan bien y dan resultados.</span>
+        </div>
+        <div class="stat">
+          <span class="tag">IA</span>
+          <strong>0.3%</strong>
+          <span>adopción promedio de IA en manufactura; brecha enorme por capturar.</span>
+        </div>
+        <div class="stat">
+          <span class="tag">Cloud</span>
+          <strong>18%</strong>
+          <span>crecimiento anualizado proyectado de nube pública en México para 2025.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="valor">
+      <div class="section-head reveal">
+        <h2>Por qué Genesys Cloud CX crea valor en esta industria</h2>
+        <p>
+          La propuesta no es “migrar llamadas a la nube”. Es conectar datos, canales, personas e IA para
+          mejorar FCR, costo por caso, ventas B2B, retención y productividad operativa.
+        </p>
+      </div>
+      <div class="card-grid reveal">
+        <article class="card">
+          <div class="icon">☁️</div>
+          <h3>CCaaS omnicanal</h3>
+          <p>Unifica voz, email, chat, mensajería, WhatsApp y canales digitales para atender clientes, distribuidores y técnicos con contexto único.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🤖</div>
+          <h3>IA aplicada al servicio</h3>
+          <p>Bots, Agent Assist, routing predictivo, summarization y autoservicio reducen esfuerzo y aceleran resolución.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📊</div>
+          <h3>Analytics y journey management</h3>
+          <p>Permite medir journeys de garantías, entregas, refacciones y soporte técnico, no solo llamadas contestadas.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧭</div>
+          <h3>WEM para supervisores</h3>
+          <p>Forecasting, scheduling, QA, performance y coaching ayudan a estabilizar ocupación, SLA y calidad.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🔌</div>
+          <h3>Integraciones abiertas</h3>
+          <p>Conecta CRM, ERP, SAP, Salesforce, ServiceNow, Dynamics, portales y eventos operativos mediante APIs e integraciones.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🇲🇽</div>
+          <h3>Relevancia local</h3>
+          <p>La región cloud de Genesys en Querétaro fortalece residencia de datos, latencia y confianza para operaciones mexicanas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="kpis">
+      <div class="split reveal">
+        <div class="panel">
+          <span class="tag">Métricas que importan</span>
+          <h2 style="margin-top:18px">Tres lentes de impacto</h2>
+          <p class="lead" style="margin-top:16px">
+            El caso financiero debe asociarse a métricas de cliente, agente y supervisor. Así se evita vender tecnología
+            y se conversa en términos de rentabilidad operativa.
+          </p>
+          <div class="metric-list">
+            <div class="metric-item"><span>👤</span><div><b>Cliente</b><small>CSAT, NPS, CES, FCR, tiempo de resolución, abandono.</small></div><em>Lealtad</em></div>
+            <div class="metric-item"><span>🎧</span><div><b>Agente</b><small>AHT útil, productividad, conocimiento, retrabajo, rotación.</small></div><em>Eficiencia</em></div>
+            <div class="metric-item"><span>📈</span><div><b>Supervisor</b><small>SLA, forecasting, ocupación, adherencia, QA, coaching.</small></div><em>Control</em></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="tabs" role="tablist" aria-label="KPIs por perfil">
+            <button class="tab-btn active" data-tab="cliente" role="tab">Cliente</button>
+            <button class="tab-btn" data-tab="agente" role="tab">Agente</button>
+            <button class="tab-btn" data-tab="supervisor" role="tab">Supervisor</button>
+          </div>
+          <div id="cliente" class="tab-content active">
+            <h3>Experiencia con menos fricción</h3>
+            <p class="lead">Genesys ayuda a mejorar FCR, CSAT y CES al enrutar por intención, ofrecer contexto completo y automatizar contactos repetitivos.</p>
+            <div class="metric-list">
+              <div class="metric-item"><span>✅</span><div><b>FCR benchmark</b><small>Promedio 70%; world-class 80%+.</small></div><em>↑</em></div>
+              <div class="metric-item"><span>💚</span><div><b>CSAT</b><small>Heineken México reportó 92% de satisfacción.</small></div><em>92%</em></div>
+              <div class="metric-item"><span>⚡</span><div><b>Menor esfuerzo</b><small>Menos transferencias, menos callbacks, más resolución.</small></div><em>CES</em></div>
+            </div>
+          </div>
+          <div id="agente" class="tab-content">
+            <h3>Agentes con contexto y copilots</h3>
+            <p class="lead">Un desktop unificado reduce el “swivel chair”; knowledge y Agent Assist aceleran diagnóstico, respuestas y cierre de caso.</p>
+            <div class="metric-list">
+              <div class="metric-item"><span>⏱️</span><div><b>AHT saludable</b><small>Menos tiempo improductivo; más foco en resolución.</small></div><em>↓</em></div>
+              <div class="metric-item"><span>🧠</span><div><b>Curva de aprendizaje</b><small>Guías, resumen y knowledge en tiempo real.</small></div><em>↓</em></div>
+              <div class="metric-item"><span>🧘</span><div><b>Rotación</b><small>Menos fricción operativa y mejor experiencia del empleado.</small></div><em>↓</em></div>
+            </div>
+          </div>
+          <div id="supervisor" class="tab-content">
+            <h3>Supervisión predictiva, no reactiva</h3>
+            <p class="lead">WEM, QA y analytics convierten la operación en un sistema visible: demanda, SLA, calidad, coaching y productividad.</p>
+            <div class="metric-list">
+              <div class="metric-item"><span>🎯</span><div><b>Service level</b><small>Referencia común 80/20; Heineken pasó de 95% a 99%.</small></div><em>99%</em></div>
+              <div class="metric-item"><span>📅</span><div><b>Forecasting</b><small>Mejor planeación de picos, lanzamientos y campañas.</small></div><em>↑</em></div>
+              <div class="metric-item"><span>🧪</span><div><b>QA y coaching</b><small>Evaluaciones y oportunidades de mejora basadas en datos.</small></div><em>↑</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos">
+      <div class="section-head reveal">
+        <h2>Casos de uso prioritarios para manufactura mexicana</h2>
+        <p>
+          Los casos más estratégicos conectan experiencia con revenue: postventa, garantías, refacciones,
+          distribuidores, logística, soporte técnico y servicio de campo.
+        </p>
+      </div>
+      <div class="usecase-grid reveal">
+        <article class="usecase"><h4>Postventa y garantías</h4><p>Reduce rebotes entre áreas, acelera resolución y protege recompra, reputación y contratos de servicio.</p></article>
+        <article class="usecase"><h4>Refacciones y aftermarket</h4><p>Convierte servicio en margen recurrente mediante disponibilidad, seguimiento y ofertas proactivas.</p></article>
+        <article class="usecase"><h4>Soporte técnico omnicanal</h4><p>Atiende por voz, email, chat o WhatsApp con historial, producto, serie, garantía y SLA visibles.</p></article>
+        <article class="usecase"><h4>Distribuidores y ventas B2B</h4><p>Mejora tiempos de respuesta, fill rate, seguimiento comercial y share of wallet de socios.</p></article>
+        <article class="usecase"><h4>Logística y entregas</h4><p>Automatiza notificaciones, reprogramaciones y consultas de pedido para reducir contactos repetitivos.</p></article>
+        <article class="usecase"><h4>Field service conectado</h4><p>Orquesta citas, técnicos, diagnóstico remoto, escalamiento y cierre de caso con visibilidad integral.</p></article>
+        <article class="usecase"><h4>IA conversacional 24/7</h4><p>Contiene interacciones simples, levanta tickets, consulta estatus y escala con contexto al agente.</p></article>
+        <article class="usecase"><h4>Copilots para agente y supervisor</h4><p>Sugiere respuestas, resume interacciones, detecta riesgos de SLA y prioriza coaching basado en datos.</p></article>
+      </div>
+    </section>
+
+    <section id="roi">
+      <div class="panel roi-box reveal">
+        <div>
+          <span class="tag">Calculadora ejecutiva</span>
+          <h2 style="margin-top:18px">Impacto estimado por mejora de FCR</h2>
+          <p class="lead" style="margin-top:16px">
+            SQM reporta que cada punto porcentual de mejora en FCR puede reducir 1% el costo operativo y equivaler
+            a USD 286K anuales en un contact center mediano. Convertido a MXN, son aproximadamente $4.95M por punto.
+          </p>
+          <div class="calculator" style="margin-top:24px">
+            <label>
+              Mejora esperada en FCR: <strong><span id="fcrValue">5</span> puntos</strong>
+              <input id="fcrRange" type="range" min="1" max="10" value="5" />
+            </label>
+          </div>
+        </div>
+        <div class="result">
+          <small>Ahorro anual direccional</small>
+          <strong id="roiResult">$24.8M</strong>
+          <p>MXN estimados para un centro mediano comparable al benchmark público.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="section-head reveal">
+        <h2>Roadmap recomendado para llevarlo a cuentas de manufactura</h2>
+        <p>
+          La mejor entrada comercial es un programa por olas: primero estabilizar la operación crítica,
+          luego conectar revenue y finalmente evolucionar hacia servicio predictivo.
+        </p>
+      </div>
+      <div class="timeline reveal">
+        <div class="wave">
+          <span class="tag">0–90 días</span>
+          <h3>Modernizar postventa y garantías</h3>
+          <p>Unificar canales, mapear intents, activar routing, knowledge, QA y métricas base de FCR, SLA y CSAT.</p>
+        </div>
+        <div class="wave">
+          <span class="tag">3–6 meses</span>
+          <h3>Integrar distribuidores y logística</h3>
+          <p>Conectar CRM/ERP, automatizar notificaciones, dar seguimiento a pedidos y habilitar ventas B2B asistidas.</p>
+        </div>
+        <div class="wave">
+          <span class="tag">6–12 meses</span>
+          <h3>Escalar IA y servicio proactivo</h3>
+          <p>Activar bots, copilots, journey analytics, WEM avanzado y disparadores desde IoT/ERP para field service.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="quote reveal">
+        <div>
+          <blockquote>“Para manufactura, CX no es un costo: es una palanca para proteger ingresos, reducir retrabajo y monetizar el aftermarket.”</blockquote>
+          <p>
+            Posicionamiento sugerido: vender Genesys Cloud CX como plataforma de orquestación de experiencia,
+            no como reemplazo de telefonía o contact center tradicional.
+          </p>
+        </div>
+        <div class="proof-grid">
+          <div class="proof"><b>Heineken México</b><span>Ventas comerciales de 6% a 12%; servicio de 95% a 99%; 92% CSAT.</span></div>
+          <div class="proof"><b>Legrand</b><span>450K contactos anuales y teletrabajo habilitado en 3 días con Genesys Cloud.</span></div>
+          <div class="proof"><b>Genesys AI</b><span>Casos públicos con reducción de costos, resolución por IA y mejora de productividad.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head reveal">
+        <h2>Fuentes clave</h2>
+        <p>Referencias públicas usadas para los datos duros, benchmarks y casos de éxito incluidos en esta página.</p>
+      </div>
+      <div class="sources reveal">
+        <a class="source" href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/comext_o/balcom_o2026_01.pdf" target="_blank" rel="noopener">INEGI · Balanza comercial y exportaciones manufactureras</a>
+        <a class="source" href="https://www.economia.gob.mx/datamexico/es/profile/industry/manufacturing" target="_blank" rel="noopener">Data México · Perfil de Manufactura</a>
+        <a class="source" href="https://selectnet.selectestrategia.net/reporte/impacto-del-presupuesto-y-gasto-en-tic-en-los-sectores-economicos-de-mexico-en-2024/" target="_blank" rel="noopener">Select · Presupuesto TIC por sector</a>
+        <a class="source" href="https://selectnet.selectestrategia.net/reporte/la-adopcion-de-ia-en-mexico-sigue-concentrada-en-las-grandes-empresas/" target="_blank" rel="noopener">Select · Adopción de IA en México</a>
+        <a class="source" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/customer-experience-creating-value-through-transforming-customer-journeys" target="_blank" rel="noopener">McKinsey · CX y valor financiero</a>
+        <a class="source" href="https://www.bcg.com/publications/2025/aftermarket-services-drive-growth-for-industrial-manufacturers" target="_blank" rel="noopener">BCG · Aftermarket en manufactura industrial</a>
+        <a class="source" href="https://www.sqmgroup.com/resources/library/blog/fcr-measurement-improve-cx-and-reduce-cost" target="_blank" rel="noopener">SQM Group · FCR y reducción de costos</a>
+        <a class="source" href="https://www.genesys.com/es-mx/customer-stories/heineken-mexico" target="_blank" rel="noopener">Genesys · Caso Heineken México</a>
+        <a class="source" href="https://www.genesys.com/customer-stories/legrand" target="_blank" rel="noopener">Genesys · Caso Legrand</a>
+        <a class="source" href="https://www.genesys.com/es-mx/company/newsroom/announcements/genesys-amplia-su-compromiso-con-mexico-a-traves-de-la-nueva-region-de-nube-integral-de-genesys-cloud" target="_blank" rel="noopener">Genesys · Región cloud en México</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Página conceptual creada para conversaciones ejecutivas de Genesys Cloud CX en cuentas de manufactura mexicanas.
+    Los ahorros e impactos financieros son direccionales y deben validarse con baseline operativo, volumen, costos reales, mix de canales e integraciones del cliente.
+  </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.tab;
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    const fcrRange = document.getElementById('fcrRange');
+    const fcrValue = document.getElementById('fcrValue');
+    const roiResult = document.getElementById('roiResult');
+    const mxnPerPoint = 4.95;
+
+    function updateRoi() {
+      const points = Number(fcrRange.value);
+      fcrValue.textContent = points;
+      roiResult.textContent = `$${(points * mxnPerPoint).toFixed(1)}M`;
+    }
+
+    fcrRange.addEventListener('input', updateRoi);
+    updateRoi();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
