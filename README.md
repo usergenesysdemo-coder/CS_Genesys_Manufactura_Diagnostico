@@ -1,0 +1,1 @@
+# CS_Genesys_Manufactura_Diagnostico
